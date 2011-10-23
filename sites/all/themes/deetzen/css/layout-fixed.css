@@ -1,0 +1,258 @@
+/**
+ * @file
+ * Layout Styling (DIV Positioning)
+ *
+ * Define CSS classes to create a table-free, 3-column, 2-column, or single
+ * column layout depending on whether blocks are enabled in the left or right
+ * columns.
+ *
+ * This layout is based on the Zen Columns layout method.
+ *   http://drupal.org/node/201428
+ *
+ * Only CSS that affects the layout (positioning) of major elements should be
+ * listed here.  Such as:
+ *   display, position, float, clear, width, height, min-width, min-height
+ *   margin, border, padding, overflow
+ */
+
+
+/*
+ * Body
+ */
+body {
+	background-image:url('../images/siteBackground.jpg');
+	font: normal 100% sans-serif;
+	padding: 2% 0;
+	
+}
+
+a {color: #642;}
+a:hover {color: #963;}
+big {font-size: 1.1em;}
+h1,h2,h3 {color: #442; padding: 8px 0 2px;}
+h1 {font: normal 2.4em serif,sans-serif;}
+h1 a {text-decoration: none;}
+h1 a:hover {text-decoration: underline;}
+h2 {font: normal 1.6em serif,sans-serif;}
+h3 {font: bold 1.2em serif,sans-serif;}
+
+#page-wrapper,
+.region-bottom {
+  /*
+   * If you want to make the page a fixed width and centered in the viewport,
+   * this is the standards-compliant way to do that. See also the ie6.css file
+   * for the necessary IE5/IE6quirks hack to center a div.
+   */
+  margin-left: auto;
+  margin-right: auto;
+  width: 790px;
+}
+
+#page {
+	margin: 20px 0 20px 0;
+	background-color: #fff;
+	border: solid #333;
+	border-width: 5px 5px 30px 5px;
+}
+
+/*
+ * Header
+ */
+#header {
+}
+
+#header .section {
+	background-image:url('../images/siteBanner.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+/*  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 10px; */
+  float: bottom;
+	height: 195px;
+		
+}
+
+.region-header {
+}
+
+/*
+ * Main (container for everything else)
+ */
+#main-wrapper {
+  position: relative;
+}
+
+#main {
+}
+
+/*
+ * Content
+ */
+#content,
+.no-sidebars #content {
+  float: left; /* LTR */
+  width: 790px;
+  margin-left: 0; /* LTR */
+  margin-right: -790px; /* LTR */ /* Negative value of #content's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #content .section. */
+}
+
+.sidebar-first #content {
+  width: 520px;
+  margin-left: 250px; /* LTR */ /* The width of .region-sidebar-first. */
+  margin-right: -790px; /* LTR */ /* Negative value of #content's width + left margin. */
+}
+
+.sidebar-second #content {
+  width: 590px;
+  margin-left: 0; /* LTR */
+  margin-right: -520px; /* LTR */ /* Negative value of #content's width + left margin. */
+}
+
+.two-sidebars #content {
+  width: 340px;
+  margin-left: 250px; /* LTR */ /* The width of .region-sidebar-first */
+  margin-right: -340px; /* LTR */ /* Negative value of #content's width + left margin. */
+}
+
+#content .section {
+  margin: 0;
+  padding: 10px;
+}
+
+.node-title a {
+	text-decoration: none;
+}
+.submitted {
+  font-size: 0.8em;
+  color: #999;
+}
+
+/*
+ * Navigation
+ */
+#navigation {
+  float: left; /* LTR */
+  width: 100%;
+  margin-left: 0; /* LTR */
+  margin-right: -100%; /* LTR */ /* Negative value of #navigation's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to #navigation .section. */
+  height: 3em; /* The navigation can have any arbritrary height. We picked one
+                    that is the line-height plus 1em: 1.3 + 1 = 2.3
+                    Set this to the same value as the margin-top below. */
+}
+
+.with-navigation #content,
+.with-navigation .region-sidebar-first,
+.with-navigation .region-sidebar-second {
+  margin-top: 3em; /* Set this to the same value as the navigation height above. */
+}
+
+#navigation .section {
+  padding: 10px;
+  /* background-color: #ddd; */
+  /* DeetZen additions */
+  background: #DED9D0 url(/sites/all/themes/deetzen/images/nav.gif) repeat-x left top; 
+}
+
+#navigation .section a {
+  border-right: 1px solid #C9C6B3;
+	float: left;
+	padding: 0 14px;
+	text-align: center;
+	text-decoration: none;
+}
+
+/*
+ * First sidebar
+ */
+.region-sidebar-first {
+  float: left; /* LTR */
+  width: 250px;
+  margin-left: 0; /* LTR */
+  margin-right: -200px; /* LTR */ /* Negative value of .region-sidebar-first's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to .region-sidebar-first .section. */
+}
+
+.region-sidebar-first .section {
+  margin: 0 20px 0 0; /* LTR */
+  padding: 10px;
+  font-size: 90%;
+}
+
+.field-content a {
+	text-decoration: none;
+}
+.views-row {
+	border-bottom: 1px dotted #333;
+}
+.views-row-last {
+	border-bottom: none;
+}
+.menu {
+  margin: 0 0 0 0;
+}
+
+/*
+ * Shows Block
+ */
+#block-views-clone-of-shows-block p {
+	margin: 0 0 10px 0;
+}
+
+/*
+ * Second sidebar
+ */
+.region-sidebar-second {
+  float: left; /* LTR */
+  width: 200px;
+  margin-left: 760px; /* LTR */ /* Width of content + sidebar-first. */
+  margin-right: -960px; /* LTR */ /* Negative value of .region-sidebar-second's width + left margin. */
+  padding: 0; /* DO NOT CHANGE. Add padding or margin to .region-sidebar-second .section. */
+}
+
+.region-sidebar-second .section {
+  margin: 0 0 0 20px; /* LTR */
+  padding: 10px;
+}
+
+/*
+ * Footer
+ */
+.region-footer {
+}
+
+/*
+ * Page bottom
+ */
+.region-bottom /* See also the #page-wrapper declaration above that this div shares. */ {
+}
+
+/*
+ * Prevent overflowing content
+ */
+#header,
+#content,
+#navigation,
+.region-sidebar-first,
+.region-sidebar-second,
+.region-footer,
+.region-bottom {
+  overflow: visible;
+  word-wrap: break-word; /* A very nice CSS3 property */
+}
+
+/*
+ * If a div.clearfix doesn't have any content after it and its bottom edge
+ * touches the bottom of the viewport, Firefox and Safari will mistakenly
+ * place several pixels worth of space between the bottom of the div and the
+ * bottom of the viewport. Uncomment this CSS property to fix this.
+ * Note: with some over-large content, this property might cause scrollbars
+ * to appear on the #page-wrapper div.
+ */
+/*
+#page-wrapper {
+  overflow-y: hidden;
+}
+*/
